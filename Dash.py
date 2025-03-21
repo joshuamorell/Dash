@@ -68,7 +68,7 @@ def update_graph(selected_site, selected_compound):
         fig.update_layout(hovermode='x unified', showlegend=True, height=600)
 
     return fig
-
+server=app.server
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True)
