@@ -14,7 +14,7 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset=['Result', 'Site', 'Compound'])
 
 # Initialize Dash app
-app = Dash(__name__)
+app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H1("Trial Results Dashboard", style={'textAlign': 'center'}),
