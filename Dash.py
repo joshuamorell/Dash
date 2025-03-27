@@ -20,7 +20,7 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset=['Result', 'Site', 'Compound', 'Units'])
 
 # Initialize Dash app
-app = Dash(__name__)
+app = dash.Dash(__name__)
 
 app.layout = html.Div([
     html.H1("Recharge Water Quality Dashboard", style={'textAlign': 'center'}),
@@ -104,7 +104,7 @@ def download_data(n_clicks, site, compound):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(host="0.0.0.0", port=8080, debug=True)
+    app.run(debug=True)
 
 
 
