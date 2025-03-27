@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output, Download
 import pandas as pd
 import plotly.express as px
 import os
@@ -20,7 +14,7 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset=['Result', 'Site', 'Compound', 'Units'])
 
 # Initialize Dash app
-app = dash.Dash(__name__)
+app = Dash(__name__)
 
 app.layout = html.Div([
     html.H1("Recharge Water Quality Dashboard", style={'textAlign': 'center'}),
@@ -102,9 +96,9 @@ def download_data(n_clicks, site, compound):
     return dcc.send_data_frame(filtered_df.to_csv, "filtered_data.csv")
 
 
-# Run the app
+# Export server for Gunicorn
+server = app.server
+
+# Run the app (only for local development)
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
