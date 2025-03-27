@@ -84,16 +84,19 @@ def update_plot(site, compound):
 
 
 # Callback to handle CSV download
+# Callback to handle CSV download
 @app.callback(
     Output("download-dataframe-csv", "data"),
     Input("download-btn", "n_clicks"),
-    Input("site-dropdown", "value"),
-    Input("compound-dropdown", "value"),
+    State("site-dropdown", "value"),
+    State("compound-dropdown", "value"),
     prevent_initial_call=True
 )
 def download_data(n_clicks, site, compound):
-    filtered_df = df[(df['Site'] == site) & (df['Compound'] == compound)]
-    return dcc.send_data_frame(filtered_df.to_csv, "filtered_data.csv")
+    if n_clicks > 0:  # Only trigger when the button is clicked
+        filtered_df = df[(df['Site'] == site) & (df['Compound'] == compound)]
+        return dcc.send_data_frame(filtered_df.to_csv, "filtered_data.csv")
+
 
 
 # Export server for Gunicorn
