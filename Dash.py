@@ -7,9 +7,15 @@
 from dash import Dash, dcc, html, Input, Output
 import pandas as pd
 import plotly.express as px
+import os
+
+# Print the current working directory and available files
+print("Current Directory:", os.getcwd())
+print("Files in Directory:", os.listdir())
 
 # Load and process data
-df = pd.read_csv('Recharge Water Quality.csv')
+file_path = os.path.join(os.getcwd(), 'Recharge Water Quality.csv')  # Absolute path to the CSV file
+df = pd.read_csv(file_path)
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset=['Result', 'Site', 'Compound', 'Units'])
 
