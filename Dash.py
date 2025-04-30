@@ -66,7 +66,7 @@ def update_plot(site, compound):
         template='plotly_white',
         color_discrete_map={
             'Ground Water': 'rgb(95,153,174)',
-            'Surface Water': 'rgb(55,58,64)'
+            'Surface Water': 'rgb(55,58,0)'
         }
     )
     
