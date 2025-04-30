@@ -53,7 +53,7 @@ def update_plot(site, compound):
         return px.scatter(title=f"No data available for {compound} at {site}")
 
     unit = filtered_df['Units'].iloc[0] if not filtered_df['Units'].isna().all() else 'Unknown Unit'
-    mcl_value = filtered_df['MCL'].iloc[0] if 'MCL' in filtered_df.columns else 'not established'
+    mcl_value = filtered_df['MCL'].iloc[0] if 'MCL' in filtered_df.columns else 'BLUE'
     title = f'Results for {compound} at {site} (MCL = {mcl_value} {unit})'
 
     fig = px.scatter(
