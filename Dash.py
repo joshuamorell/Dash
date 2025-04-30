@@ -98,7 +98,7 @@ def download_data(n_clicks, site, compound):
 
 
 # Export server for Gunicorn
-server = app.server
+server = Dash.server
 
 # Run the app (only for local development)
 if __name__ == '__main__':
