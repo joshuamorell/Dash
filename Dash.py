@@ -17,7 +17,7 @@ df = df.dropna(subset=['Result', 'Site', 'Compound', 'Units'])
 app = Dash(__name__)
 
 app.layout = html.Div([
-    html.H1("Recharge Water Quality Dashboard", style={'textAlign': 'center'}),
+    html.H1("Recharge Water Quality Dashboard", style={'textAlign': 'center','color':'#373a40'}),
     
     html.Label("Select Site:"),
     dcc.Dropdown(
