@@ -37,7 +37,7 @@ app.layout = html.Div([
 
     html.Button("Download Data", id="download-btn", n_clicks=0),
     dcc.Download(id="download-dataframe-csv")
-])
+], style={'fontFamily': 'Segoe UI'})
 
 
 # Callback to update the plot
